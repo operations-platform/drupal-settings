@@ -7,17 +7,35 @@ Add it to your project to simplify your settings.php file by using common defaul
 It just makes things easier. For example, when using Lando, you don't have to set the database settings or DRUSH_OPTIONS_URI, and it automatically enables development mode.
 ## Usage
 
-1. Install with composer:
+Install with composer:
 
        composer require operations/drupal-settings`
 
-2. Add snippet to sites/default/settings.php:
+Once in place, you have 2 options for enabling it:
 
-       if (file_exists(DRUPAL_ROOT . "/../vendor/operations/drupal-settings/Settings/settings.include.php")) {
-           require DRUPAL_ROOT . "/../vendor/operations/drupal-settings/Settings/settings.include.php";
-       }
+1. Allow Drupal Scaffold to copy its settings.global.php file into your project.
 
-3. Profit.
+    Add this package to the `extra.drupal-scaffold.allowed-packages` section of your `composer.json` file:
+
+    ```json
+    {
+      "extra": {
+          "drupal-scaffold": {
+              "allowed-packages": [
+                  "operations/drupal-settings"
+              ]
+          }
+      }
+    }
+    ```
+
+2. Or you can manually copy this snippet to your settings.php file:
+
+    ```php
+    if (file_exists($app_root . "/../vendor/operations/drupal-settings/Settings/settings.include.php")) {
+      require $app_root . "/../vendor/operations/drupal-settings/Settings/settings.include.php";
+    }
+    ```
 
 To override any defaults provided by [`settings.include.php`](./Settings/settings.include.php), simply add them to your settings.php file after the snippet.
 

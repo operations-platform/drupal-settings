@@ -25,5 +25,16 @@
     "autoload": {
       "files": ["Settings/autoload.php"]
     },
-    "require": {}
+    "require": {},
+    "extra": {
+        "drupal-scaffold": {
+            "file-mapping": {
+                "[web-root]/sites/default/settings.php": {
+                    "mode": "replace",
+                    "path": "assets/settings.global.php",
+                    "overwrite": false
+                }
+            }
+        }
+    }
 }
