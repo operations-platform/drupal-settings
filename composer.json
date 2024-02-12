@@ -23,7 +23,10 @@
     ],
     "minimum-stability": "dev",
     "autoload": {
-      "files": ["Settings/autoload.php"]
+        "psr-4": {
+            "Operations\\": ""
+        },
+        "files": ["Settings/autoload.php"]
     },
     "require": {}
 }

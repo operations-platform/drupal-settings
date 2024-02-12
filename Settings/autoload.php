@@ -7,6 +7,10 @@
  * This allows us to alter things like DRUSH_OPTIONS_URI before drush bootstraps.
  */
 
+use Operations\DrupalSettings;
+
+DrupalSettings::init();
+
 /**
  * Set DRUSH_OPTIONS_URI from lando info, if it exists.
  * This has to be here because settings.lando.php is loaded too late.
